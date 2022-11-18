@@ -4,7 +4,9 @@ namespace Dagou\Masonry\Source;
 use Dagou\Masonry\Interfaces\Source;
 
 abstract class AbstractSource implements Source {
-    const URL = '';
+    protected const URL = '';
+    protected const VERSON = '4.2.2';
+
 
     public function getJs(): string {
         return static::URL.$this->getJsBuild();
