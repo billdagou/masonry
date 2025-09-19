@@ -1,7 +1,7 @@
 <?php
-namespace Dagou\Masonry\Interfaces;
+namespace Dagou\Masonry\Source;
 
-interface Source {
+interface SourceInterface {
     /**
      * @return string
      */

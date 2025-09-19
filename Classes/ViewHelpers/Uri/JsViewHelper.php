@@ -1,14 +1,19 @@
 <?php
 namespace Dagou\Masonry\ViewHelpers\Uri;
 
-use Dagou\Masonry\Interfaces\Source;
 use Dagou\Masonry\Source\Local;
+use Dagou\Masonry\Source\SourceInterface;
 use Dagou\Masonry\Utility\ExtensionUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
-class JsViewHelper extends AbstractViewHelper {
+final class JsViewHelper extends AbstractViewHelper {
+    /**
+     * @return void
+     */
     public function initializeArguments(): void {
+        parent::initializeArguments();
+
         $this->registerArgument('forceLocal', 'boolean', 'Force to use local source.');
     }
 
@@ -17,7 +22,7 @@ class JsViewHelper extends AbstractViewHelper {
      */
     public function render(): string {
         if ($this->arguments['forceLocal'] !== TRUE
-            && is_subclass_of(($className = ExtensionUtility::getSource()), Source::class)
+            && is_subclass_of(($className = ExtensionUtility::getSource()), SourceInterface::class)
         ) {
             $source = GeneralUtility::makeInstance($className);
         } else {

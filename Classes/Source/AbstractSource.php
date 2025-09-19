@@ -1,21 +1,21 @@
 <?php
 namespace Dagou\Masonry\Source;
 
-use Dagou\Masonry\Interfaces\Source;
+abstract class AbstractSource implements SourceInterface {
+    protected const string URL = '';
+    protected const string VERSON = '4.2.2';
 
-abstract class AbstractSource implements Source {
-    protected const URL = '';
-    protected const VERSON = '4.2.2';
-
-
+    /**
+     * @return string
+     */
     public function getJs(): string {
-        return static::URL.$this->getJsBuild();
+        return static::URL.$this->getBuild();
     }
 
     /**
      * @return string
      */
-    protected function getJsBuild(): string {
+    protected function getBuild(): string {
         return 'masonry.pkgd.min.js';
     }
 }

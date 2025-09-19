@@ -1,6 +1,6 @@
 <?php
 namespace Dagou\Masonry\Source;
 
-class Local extends AbstractSource {
-    protected const URL = 'EXT:masonry/Resources/Public/';
+final class Local extends AbstractSource {
+    protected const string URL = 'EXT:masonry/Resources/Public/';
 }
