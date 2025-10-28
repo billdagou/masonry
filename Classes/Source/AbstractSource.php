@@ -3,7 +3,7 @@ namespace Dagou\Masonry\Source;
 
 abstract class AbstractSource implements SourceInterface {
     protected const string URL = '';
-    protected const string VERSON = '4.2.2';
+    protected const string VERSION = '4.2.2';
 
     /**
      * @return string
